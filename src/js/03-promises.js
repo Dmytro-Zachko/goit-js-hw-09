@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import "flatpickr/dist/flatpickr.min.css";
 
 const formRef = document.querySelector('.form');
 const delayinputRef = document.querySelector('input[name="delay"]')
@@ -30,8 +31,7 @@ function createPromise(position, delay) {
   } else {
     reject({position,delay})
   }  
-  }, delay)
-  })
+  }, delay)})
   return promise
   }
 
