@@ -53,7 +53,7 @@ function addLeadingZero(value) {
 
 function ChangeTimerInterface({ days, hours, minutes, seconds }) {
     daysRef.textContent = `${days}`;
-    hoursRef.textcontent = `${hours}`;
+    hoursRef.textContent = `${hours}`;
     minutesRef.textContent = `${minutes}`;
     secondsRef.textContent = `${seconds}`;
 }

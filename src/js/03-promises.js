@@ -15,25 +15,26 @@ function OnFormSubmit(event) {
   const step = +stepinputRef.value;
   const amount = +amountinputRef.value;
 
-  for (let i = 0; i < amount; i++) {
-    const delayStep = +(delay + step - (i - 1));
-  
-  createPromise(i,delayStep).then(OnSuccess).catch(OnError)
+  for (let i = 1; i <= amount; i++) {
+    const delayStep = +(delay + step * (i - 1));
+
+    createPromise(i, delayStep).then(OnSuccess).catch(OnError);
   }
 }
 
 function createPromise(position, delay) {
-  const promise = new Promise((resolve, reject) => {
+ return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-  setTimeout(() => {
-    if (shouldResolve) {
-    resolve({position, delay})
-  } else {
-    reject({position,delay})
-  }  
-  }, delay)})
-  return promise
-  }
+
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      } else {
+        reject({ position, delay });
+      }
+    }, delay);
+  });
+}
 
 
 function OnSuccess({position,delay}) {
